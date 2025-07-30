@@ -1,17 +1,19 @@
+# ベースイメージ
 FROM node:20
 
+# 作業ディレクトリ作成
 WORKDIR /app
 
+# パッケージ定義をコピーして依存関係インストール
 COPY package*.json ./
-
-COPY quiz.json ./quiz.json
-
-COPY images ./images
-
 RUN npm install
 
+# ソースコードをコピー
 COPY . .
 
-EXPOSE 3001
+# 公開ポート（Cloud Run がこのポートでアクセス）
+ENV PORT=8080
+EXPOSE 8080
 
-CMD ["node", "index.js"]
+# サーバ起動
+CMD [ "node", "index.js" ]

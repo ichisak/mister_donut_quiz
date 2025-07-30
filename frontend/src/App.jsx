@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-const BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:3001';
+const BASE_URL = 'https://backend-service-172686701692.asia-northeast1.run.app' || 'http://localhost:3001';
 
 function App() {
   const [quizList, setQuizList] = useState([]);
